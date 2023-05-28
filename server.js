@@ -4,10 +4,11 @@ const errorhanddler = require("./middleware/ErrorHandler");
 const app = express();
 const connectDb = require("./config")
 const dotenv = require('dotenv').config();
+const cors = require("cors")
 connectDb();
 
 app.use(express.json());
-
+app.use(cors());
 app.use('/message', require("./routes/messageRoute"))
 
 app.use(errorhanddler);
